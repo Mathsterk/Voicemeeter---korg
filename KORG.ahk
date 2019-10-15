@@ -78,7 +78,7 @@ Sleep 2000
   Channel := 1               ;midi channel to send on
   MidiDevice := 1       ;number of midi output device to use.  
   Note := 62            ;midi number for middle C
-  NoteDur := 30       ;duration to hold note for (approx.)
+  NoteDur := 10       ;duration to hold note for (approx.)
   NoteVel := 127        ;velocity of note to send
   
   ;See if user wants to pick an output
@@ -107,36 +107,28 @@ Sleep 2000
 ;-------------Send middle C-----------------------------------------------------
 ; "N1" is shorthand for "NoteOn". See comments in midiOutShortMsg for a full list of allowable event types 
 
-; Loop, 53 {
-;   midiOutShortMsg(h_midiout, "CC", Channel, A_Index + 10, 127)
+Loop, 53 {
+  midiOutShortMsg(h_midiout, "CC", Channel, A_Index + 10, 127)
+}  
+
+  midiOutShortMsg(h_midiout, "CC", Channel, 80, 127)
+  midiOutShortMsg(h_midiout, "CC", Channel, 81, 127)
 
 
-; ;pause
-;   Sleep %NoteDur%
+Loop, 53 {
+  ; midiOutShortMsg(h_midiout, "CC", Channel, A_Index + 10, 127)
+
+
+;pause
+  Sleep %NoteDur%
  
-;  ;Send Note-Off command for middle C 
-;   ; midiOutShortMsg(h_midiout, "CC", Channel, A_Index + 10, 0)
-; }  
-
-;   midiOutShortMsg(h_midiout, "CC", Channel, 80, 127)
-;   Sleep %NoteDur%
-;   midiOutShortMsg(h_midiout, "CC", Channel, 81, 127)
-
-
-; Loop, 53 {
-;   ; midiOutShortMsg(h_midiout, "CC", Channel, A_Index + 10, 127)
-
-
-; ;pause
-;   Sleep %NoteDur%
- 
-;  ;Send Note-Off command for middle C 
-;   midiOutShortMsg(h_midiout, "CC", Channel, A_Index + 10, 0)
-; }  
-;   Sleep %NoteDur%
-;   midiOutShortMsg(h_midiout, "CC", Channel, 80, 0)
-;   Sleep %NoteDur%
-;   midiOutShortMsg(h_midiout, "CC", Channel, 81, 0)
+ ;Send Note-Off command for middle C 
+  midiOutShortMsg(h_midiout, "CC", Channel, A_Index + 10, 0)
+}  
+  Sleep %NoteDur%
+  midiOutShortMsg(h_midiout, "CC", Channel, 80, 0)
+  Sleep %NoteDur%
+  midiOutShortMsg(h_midiout, "CC", Channel, 81, 0)
 
 keepalive := 0
 
