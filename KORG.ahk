@@ -211,51 +211,26 @@ Loop {
 
     solo0 := 0
     DllCall(VMR_FUNCTIONS["GetParameterFloat"], "AStr", "Strip[0].Solo", "Float*", solo0)
-    if(solo0 > 0) {
-      midiOutShortMsg(h_midiout, "CC", Channel, 29, 127)
-    } else {
-      midiOutShortMsg(h_midiout, "CC", Channel, 29, 0)
-    }
+
 
     solo1 := 0
     DllCall(VMR_FUNCTIONS["GetParameterFloat"], "AStr", "Strip[1].Solo", "Float*", solo1)
-    if(solo1 > 0) {
-      midiOutShortMsg(h_midiout, "CC", Channel, 30, 127)
-    } else {
-      midiOutShortMsg(h_midiout, "CC", Channel, 30, 0)
-    }
 
-    solo1 := 0
-    DllCall(VMR_FUNCTIONS["GetParameterFloat"], "AStr", "Strip[4].Solo", "Float*", solo1)
-    if(solo1 > 0) {
-      midiOutShortMsg(h_midiout, "CC", Channel, 31, 127)
-    } else {
-      midiOutShortMsg(h_midiout, "CC", Channel, 31, 0)
-    }
 
-    solo1 := 0
-    DllCall(VMR_FUNCTIONS["GetParameterFloat"], "AStr", "Strip[5].Solo", "Float*", solo1)
-    if(solo1 > 0) {
-      midiOutShortMsg(h_midiout, "CC", Channel, 33, 127)
-    } else {
-      midiOutShortMsg(h_midiout, "CC", Channel, 33, 0)
-    }
+    solo2 := 0
+    DllCall(VMR_FUNCTIONS["GetParameterFloat"], "AStr", "Strip[4].Solo", "Float*", solo2)
 
-    solo1 := 0
-    DllCall(VMR_FUNCTIONS["GetParameterFloat"], "AStr", "Strip[6].Solo", "Float*", solo1)
-    if(solo1 > 0) {
-      midiOutShortMsg(h_midiout, "CC", Channel, 34, 127)
-    } else {
-      midiOutShortMsg(h_midiout, "CC", Channel, 34, 0)
-    }
 
-    solo1 := 0
-    DllCall(VMR_FUNCTIONS["GetParameterFloat"], "AStr", "Strip[7].Solo", "Float*", solo1)
-    if(solo1 > 0) {
-      midiOutShortMsg(h_midiout, "CC", Channel, 35, 127)
-    } else {
-      midiOutShortMsg(h_midiout, "CC", Channel, 35, 0)
-    }
+    solo3 := 0
+    DllCall(VMR_FUNCTIONS["GetParameterFloat"], "AStr", "Strip[5].Solo", "Float*", solo3)
+
+
+    solo4 := 0
+    DllCall(VMR_FUNCTIONS["GetParameterFloat"], "AStr", "Strip[6].Solo", "Float*", solo4)
+
+
+    solo5 := 0
+    DllCall(VMR_FUNCTIONS["GetParameterFloat"], "AStr", "Strip[7].Solo", "Float*", solo5)
 
 
 
@@ -331,13 +306,56 @@ Loop {
 
   } else {
     Sleep, 10
-    keepalive := keepalive + 1
-    if(keepalive > 100) {
+    keepalive += 1
+    threshold := 30
+    if(keepalive > threshold) {
       midiOutShortMsg(h_midiout, "CC", Channel, 0, 0)
       keepalive := 0
-    }
-  }
 
+
+
+
+
+
+    }
+
+    if(solo0 > 0 and keepalive < threshold / 2) {
+      midiOutShortMsg(h_midiout, "CC", Channel, 29, 127)
+    } else {
+      midiOutShortMsg(h_midiout, "CC", Channel, 29, 0)
+    }
+
+    if(solo1 > 0 and keepalive < threshold / 2) {
+      midiOutShortMsg(h_midiout, "CC", Channel, 30, 127)
+    } else {
+      midiOutShortMsg(h_midiout, "CC", Channel, 30, 0)
+    }
+
+    if(solo2 > 0 and keepalive < threshold / 2) {
+      midiOutShortMsg(h_midiout, "CC", Channel, 31, 127)
+    } else {
+      midiOutShortMsg(h_midiout, "CC", Channel, 31, 0)
+    }
+
+    if(solo3 > 0 and keepalive < threshold / 2) {
+      midiOutShortMsg(h_midiout, "CC", Channel, 33, 127)
+    } else {
+      midiOutShortMsg(h_midiout, "CC", Channel, 33, 0)
+    }
+
+    if(solo4 > 0 and keepalive < threshold / 2) {
+      midiOutShortMsg(h_midiout, "CC", Channel, 34, 127)
+    } else {
+      midiOutShortMsg(h_midiout, "CC", Channel, 34, 0)
+    }
+    
+    if(solo5 > 0 and keepalive < threshold / 2) {
+      midiOutShortMsg(h_midiout, "CC", Channel, 35, 127)
+    } else {
+      midiOutShortMsg(h_midiout, "CC", Channel, 35, 0)
+    }
+
+  }
 }
 
 
