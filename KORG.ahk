@@ -257,65 +257,72 @@ Loop {
       midiOutShortMsg(h_midiout, "CC", Channel, 35, 0)
     }
 
+
+
+
+
+
+
+
     eq := 0
     DllCall(VMR_FUNCTIONS["GetParameterFloat"], "AStr", "Bus[0].EQ.on", "Float*", eq)
     if(eq > 0) {
-      midiOutShortMsg(h_midiout, "CC", Channel, 36, 127)
+      midiOutShortMsg(h_midiout, "CC", Channel, 44, 127)
     } else {
-      midiOutShortMsg(h_midiout, "CC", Channel, 36, 0)
+      midiOutShortMsg(h_midiout, "CC", Channel, 44, 0)
     }
 
     DllCall(VMR_FUNCTIONS["GetParameterFloat"], "AStr", "Bus[1].EQ.on", "Float*", eq)
     if(eq > 0) {
-      midiOutShortMsg(h_midiout, "CC", Channel, 37, 127)
+      midiOutShortMsg(h_midiout, "CC", Channel, 45, 127)
     } else {
-      midiOutShortMsg(h_midiout, "CC", Channel, 37, 0)
+      midiOutShortMsg(h_midiout, "CC", Channel, 45, 0)
     }
 
 
 
     B1 := 0
     
-    DllCall(VMR_FUNCTIONS["GetParameterFloat"], "AStr", "Strip[0].Mute", "Float*", muted)
-    if(muted > 0) {
-      midiOutShortMsg(h_midiout, "CC", Channel, 21, 127)
+    DllCall(VMR_FUNCTIONS["GetParameterFloat"], "AStr", "Strip[0].B1", "Float*", B1)
+    if(B1 > 0) {
+      midiOutShortMsg(h_midiout, "CC", Channel, 38, 127)
     } else {
-      midiOutShortMsg(h_midiout, "CC", Channel, 21, 0)
+      midiOutShortMsg(h_midiout, "CC", Channel, 38, 0)
     }
 
-    DllCall(VMR_FUNCTIONS["GetParameterFloat"], "AStr", "Strip[1].Mute", "Float*", muted)
-    if(muted > 0) {
-      midiOutShortMsg(h_midiout, "CC", Channel, 22, 127)
+    DllCall(VMR_FUNCTIONS["GetParameterFloat"], "AStr", "Strip[1].B1", "Float*", B1)
+    if(B1 > 0) {
+      midiOutShortMsg(h_midiout, "CC", Channel, 39, 127)
     } else {
-      midiOutShortMsg(h_midiout, "CC", Channel, 22, 0)
+      midiOutShortMsg(h_midiout, "CC", Channel, 39, 0)
     }
 
-    DllCall(VMR_FUNCTIONS["GetParameterFloat"], "AStr", "Strip[4].Mute", "Float*", muted)
-    if(muted > 0) {
-      midiOutShortMsg(h_midiout, "CC", Channel, 23, 127)
+    DllCall(VMR_FUNCTIONS["GetParameterFloat"], "AStr", "Strip[4].B1", "Float*", B1)
+    if(B1 > 0) {
+      midiOutShortMsg(h_midiout, "CC", Channel, 40, 127)
     } else {
-      midiOutShortMsg(h_midiout, "CC", Channel, 23, 0)
+      midiOutShortMsg(h_midiout, "CC", Channel, 40, 0)
     }
 
-    DllCall(VMR_FUNCTIONS["GetParameterFloat"], "AStr", "Strip[5].Mute", "Float*", muted)
-    if(muted > 0) {
-      midiOutShortMsg(h_midiout, "CC", Channel, 24, 127)
+    DllCall(VMR_FUNCTIONS["GetParameterFloat"], "AStr", "Strip[5].B1", "Float*", B1)
+    if(B1 > 0) {
+      midiOutShortMsg(h_midiout, "CC", Channel, 41, 127)
     } else {
-      midiOutShortMsg(h_midiout, "CC", Channel, 24, 0)
+      midiOutShortMsg(h_midiout, "CC", Channel, 41, 0)
     }
 
-    DllCall(VMR_FUNCTIONS["GetParameterFloat"], "AStr", "Strip[6].Mute", "Float*", muted)
-    if(muted > 0) {
-      midiOutShortMsg(h_midiout, "CC", Channel, 25, 127)
+    DllCall(VMR_FUNCTIONS["GetParameterFloat"], "AStr", "Strip[6].B1", "Float*", B1)
+    if(B1 > 0) {
+      midiOutShortMsg(h_midiout, "CC", Channel, 42, 127)
     } else {
-      midiOutShortMsg(h_midiout, "CC", Channel, 25, 0)
+      midiOutShortMsg(h_midiout, "CC", Channel, 42, 0)
     }
 
-    DllCall(VMR_FUNCTIONS["GetParameterFloat"], "AStr", "Strip[7].Mute", "Float*", muted)
-    if(muted > 0) {
-      midiOutShortMsg(h_midiout, "CC", Channel, 26, 127)
+    DllCall(VMR_FUNCTIONS["GetParameterFloat"], "AStr", "Strip[7].B1", "Float*", B1)
+    if(B1 > 0) {
+      midiOutShortMsg(h_midiout, "CC", Channel, 43, 127)
     } else {
-      midiOutShortMsg(h_midiout, "CC", Channel, 26, 0)
+      midiOutShortMsg(h_midiout, "CC", Channel, 43, 0)
     }
 
 
