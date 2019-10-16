@@ -71,6 +71,29 @@ Sleep 2000
 }
 
 
+global playpercent
+global playing
+
+solo0state := 0
+solo1state := 0
+solo2state := 0
+solo3state := 0
+solo4state := 0
+solo5state := 0
+solochange := 0
+playstate := 0
+
+
+change := 0
+p1state := 0
+p2state := 0
+p3state := 0
+p4state := 0
+p5state := 0
+p6state := 0
+p7state := 0
+p8state := 0
+
 
 #Include Midi Functions.ahk
  
@@ -303,67 +326,381 @@ Loop {
     if(keepalive > threshold) {
       midiOutShortMsg(h_midiout, "CC", Channel, 0, 0)
       keepalive := 0
+    }
 
 
 
 
+     if(solo0 > 0 and keepalive < threshold / 2) {
+        if(solo0state = 0) {
+          solo0state := 1
+          solochange := 1
+        }
+      } else {
+        if(solo0state = 1) {
+          solo0state := 0
+          solochange := 1
+        }
+      }
+     if(solo1 > 0 and keepalive < threshold / 2) {
+        if(solo1state = 0) {
+          solo1state := 1
+          solochange := 1
+        }
+      } else {
+        if(solo1state = 1) {
+          solo1state := 0
+          solochange := 1
+        }
+      }
+     if(solo2 > 0 and keepalive < threshold / 2) {
+        if(solo2state = 0) {
+          solo2state := 1
+          solochange := 1
+        }
+      } else {
+        if(solo2state = 1) {
+          solo2state := 0
+          solochange := 1
+        }
+      }
+     if(solo3 > 0 and keepalive < threshold / 2) {
+        if(solo3state = 0) {
+          solo3state := 1
+          solochange := 1
+        }
+      } else {
+        if(solo3state = 1) {
+          solo3state := 0
+          solochange := 1
+        }
+      }
+     if(solo4 > 0 and keepalive < threshold / 2) {
+        if(solo4state = 0) {
+          solo4state := 1
+          solochange := 1
+        }
+      } else {
+        if(solo4state = 1) {
+          solo4state := 0
+          solochange := 1
+        }
+      }
+     if(solo5 > 0 and keepalive < threshold / 2) {
+        if(solo5state = 0) {
+          solo5state := 1
+          solochange := 1
+        }
+      } else {
+        if(solo5state = 1) {
+          solo5state := 0
+          solochange := 1
+        }
+      }
 
+    if(solochange) {
+      solochange := 0
+      if(solo0state = 1) {
+        midiOutShortMsg(h_midiout, "CC", Channel, 29, 127)
+      } else if (solo0state = 0) {
+        midiOutShortMsg(h_midiout, "CC", Channel, 29, 0)
+      }
+      if(solo1state = 1) {
+        midiOutShortMsg(h_midiout, "CC", Channel, 30, 127)
+      } else if (solo1state = 0) {
+        midiOutShortMsg(h_midiout, "CC", Channel, 30, 0)
+      }
+      if(solo2state = 1) {
+        midiOutShortMsg(h_midiout, "CC", Channel, 31, 127)
+      } else if (solo2state = 0) {
+        midiOutShortMsg(h_midiout, "CC", Channel, 31, 0)
+      }
+      if(solo3state = 1) {
+        midiOutShortMsg(h_midiout, "CC", Channel, 33, 127)
+      } else if (solo3state = 0) {
+        midiOutShortMsg(h_midiout, "CC", Channel, 33, 0)
+      }
+      if(solo4state = 1) {
+        midiOutShortMsg(h_midiout, "CC", Channel, 34, 127)
+      } else if (solo4state = 0) {
+        midiOutShortMsg(h_midiout, "CC", Channel, 34, 0)
+      }
+      if(solo5state = 1) {
+        midiOutShortMsg(h_midiout, "CC", Channel, 35, 127)
+      } else if (solo5state = 0) {
+        midiOutShortMsg(h_midiout, "CC", Channel, 35, 0)
+      }
 
     }
 
-    if(solo0 > 0 and keepalive < threshold / 2 and solo0state = 0) {
-      midiOutShortMsg(h_midiout, "CC", Channel, 29, 127)
-      solo0state := 1
-    } else if(solo0state = 1) {
-      midiOutShortMsg(h_midiout, "CC", Channel, 29, 0)
-      solo0state := 0
-    }
 
-    if(solo1 > 0 and keepalive < threshold / 2 and solo1state = 0) {
-      midiOutShortMsg(h_midiout, "CC", Channel, 30, 127)
-      solo1state := 1
-    } else {
-      midiOutShortMsg(h_midiout, "CC", Channel, 30, 0)
-      solo1state := 0
-    }
+    ; if(solo0 > 0 and keepalive < threshold / 2 and solo0state = 0) {
+    ;   midiOutShortMsg(h_midiout, "CC", Channel, 29, 127)
+    ;   solo0state := 1
+    ; } 
+    ; if(not solo5 and solo0state = 1) {
+    ;   midiOutShortMsg(h_midiout, "CC", Channel, 29, 0)
+    ;   solo0state := 0
+    ; }
 
-    if(solo2 > 0 and keepalive < threshold / 2 and solo2state = 0) {
-      midiOutShortMsg(h_midiout, "CC", Channel, 31, 127)
-      solo2state := 1
-    } else {
-      midiOutShortMsg(h_midiout, "CC", Channel, 31, 0)
-      solo2state := 0
-    }
+    ; if(solo1 > 0 and keepalive < threshold / 2 and solo1state = 0) {
+    ;   midiOutShortMsg(h_midiout, "CC", Channel, 30, 127)
+    ;   solo1state := 1
+    ; } 
+    ; if(not solo5 and solo1state = 1) {
+    ;   midiOutShortMsg(h_midiout, "CC", Channel, 30, 0)
+    ;   solo1state := 0
+    ; }
 
-    if(solo3 > 0 and keepalive < threshold / 2 and solo3state = 0) {
-      midiOutShortMsg(h_midiout, "CC", Channel, 33, 127)
-      solo3state := 1
-    } else {
-      midiOutShortMsg(h_midiout, "CC", Channel, 33, 0)
-      solo3state := 0
-    }
+    ; if(solo2 > 0 and keepalive < threshold / 2 and solo2state = 0) {
+    ;   midiOutShortMsg(h_midiout, "CC", Channel, 31, 127)
+    ;   solo2state := 1
+    ; } 
+    ; if(not solo5 and solo2state = 1) {
+    ;   midiOutShortMsg(h_midiout, "CC", Channel, 31, 0)
+    ;   solo2state := 0
+    ; }
 
-    if(solo4 > 0 and keepalive < threshold / 2 and solo4state = 0) {
-      midiOutShortMsg(h_midiout, "CC", Channel, 34, 127)
-      solo4state := 1
-    } else {
-      midiOutShortMsg(h_midiout, "CC", Channel, 34, 0)
-      solo4state := 0
-    }
+    ; if(solo3 > 0 and keepalive < threshold / 2 and solo3state = 0) {
+    ;   midiOutShortMsg(h_midiout, "CC", Channel, 33, 127)
+    ;   solo3state := 1
+    ; } 
+    ; if(not solo5 and solo3state = 1) {
+    ;   midiOutShortMsg(h_midiout, "CC", Channel, 33, 0)
+    ;   solo3state := 0
+    ; }
+
+    ; if(solo4 > 0 and keepalive < threshold / 2 and solo4state = 0) {
+    ;   midiOutShortMsg(h_midiout, "CC", Channel, 34, 127)
+    ;   solo4state := 1
+    ; } 
+    ; if(not solo5 and solo4state = 1) {
+    ;   midiOutShortMsg(h_midiout, "CC", Channel, 34, 0)
+    ;   solo4state := 0
+    ; }
     
-    if(solo5 > 0 and keepalive < threshold / 2 and solo5state = 0) {
-      midiOutShortMsg(h_midiout, "CC", Channel, 35, 127)
-      solo5state := 1
-    } else {
-      midiOutShortMsg(h_midiout, "CC", Channel, 35, 0)
-      solo5state := 0
+    ; if(solo5 > 0 and keepalive < threshold / 2 and solo5state = 0) {
+    ;   midiOutShortMsg(h_midiout, "CC", Channel, 35, 127)
+    ;   solo5state := 1
+    ; }
+    ; if(not solo5 and solo5state = 1) {
+    ;   midiOutShortMsg(h_midiout, "CC", Channel, 35, 0)
+    ;   solo5state := 0
+    ; }
+
+    gdm()
+    if(playing and playstate = 0) {
+      midiOutShortMsg(h_midiout, "CC", Channel, 55, 127)
+      playstate := 1
+    }
+    if(not playing and playstate = 1) {
+      midiOutShortMsg(h_midiout, "CC", Channel, 55, 0)
+      playstate := 0      
     }
 
+
+
+
+    if(playing) {
+
+
+
+      if(playpercent > 0) {
+        if(p1state = 0) {
+          p1state := 1
+          change := 1
+        }
+      } else {
+        if(p1state = 1) {
+          p1state := 0
+          change := 1
+        }
+      }
+      if(playpercent > 1) {
+        if(p2state = 0) {
+          p2state := 1
+          change := 1
+        }
+      } else {
+        if(p2state = 1) {
+          p2state := 0
+          change := 1
+        }
+      }
+      if(playpercent > 2) {
+        if(p3state = 0) {
+          p3state := 1
+          change := 1
+        }
+      } else {
+        if(p3state = 1) {
+          p3state := 0
+          change := 1
+        }
+      }
+      if(playpercent > 3) {
+        if(p4state = 0) {
+          p4state := 1
+          change := 1
+        }
+      } else {
+        if(p4state = 1) {
+          p4state := 0
+          change := 1
+        }
+      }
+      if(playpercent > 4) {
+        if(p5state = 0) {
+          p5state := 1
+          change := 1
+        }
+      } else {
+        if(p5state = 1) {
+          p5state := 0
+          change := 1
+        }
+      }
+      if(playpercent > 5) {
+        if(p6state = 0) {
+          p6state := 1
+          change := 1
+        }
+      } else {
+        if(p6state = 1) {
+          p6state := 0
+          change := 1
+        }
+      }
+      if(playpercent > 6) {
+        if(p7state = 0) {
+          p7state := 1
+          change := 1
+        }
+      } else {
+        if(p7state = 1) {
+          p7state := 0
+          change := 1
+        }
+      }
+      if(playpercent > 7) {
+        if(p8state = 0) {
+          p8state := 1
+          change := 1
+        }
+      } else {
+        if(p8state = 1) {
+          p8state := 0
+          change := 1
+        }
+      }
+
+    }
+    if(not playing) {
+      if(p1state = 1) {
+        p1state = 0
+        change = 1
+      }
+      if(p2state = 1) {
+        p2state = 0
+        change = 1
+      }
+      if(p3state = 1) {
+        p3state = 0
+        change = 1
+      }
+      if(p4state = 1) {
+        p4state = 0
+        change = 1
+      }
+      if(p5state = 1) {
+        p5state = 0
+        change = 1
+      }
+      if(p6state = 1) {
+        p6state = 0
+        change = 1
+      }
+      if(p7state = 1) {
+        p7state = 0
+        change = 1
+      }
+      if(p8state = 1) {
+        p8state = 0
+        change = 1
+      }
+
+    }
+
+    if(change) {
+      change := 0
+      if(p1state = 1) {
+        midiOutShortMsg(h_midiout, "CC", Channel, 46, 127)
+      } else if (p1state = 0) {
+        midiOutShortMsg(h_midiout, "CC", Channel, 46, 0)
+      }
+
+      if(p2state = 1) {
+        midiOutShortMsg(h_midiout, "CC", Channel, 47, 127)
+      } else if (p2state = 0) {
+        midiOutShortMsg(h_midiout, "CC", Channel, 47, 0)
+      }
+
+      if(p3state = 1) {
+        midiOutShortMsg(h_midiout, "CC", Channel, 48, 127)
+      } else if (p3state = 0) {
+        midiOutShortMsg(h_midiout, "CC", Channel, 48, 0)
+      }
+
+      if(p4state = 1) {
+        midiOutShortMsg(h_midiout, "CC", Channel, 49, 127)
+      } else if (p4state = 0) {
+        midiOutShortMsg(h_midiout, "CC", Channel, 49, 0)
+      }
+
+      if(p5state = 1) {
+        midiOutShortMsg(h_midiout, "CC", Channel, 50, 127)
+      } else if (p5state = 0) {
+        midiOutShortMsg(h_midiout, "CC", Channel, 50, 0)
+      }
+
+      if(p6state = 1) {
+        midiOutShortMsg(h_midiout, "CC", Channel, 51, 127)
+      } else if (p6state = 0) {
+        midiOutShortMsg(h_midiout, "CC", Channel, 51, 0)
+      }
+
+      if(p7state = 1) {
+        midiOutShortMsg(h_midiout, "CC", Channel, 52, 127)
+      } else if (p7state = 0) {
+        midiOutShortMsg(h_midiout, "CC", Channel, 52, 0)
+      }
+
+      if(p8state = 1) {
+        midiOutShortMsg(h_midiout, "CC", Channel, 53, 127)
+      } else if (p8state = 0) {
+        midiOutShortMsg(h_midiout, "CC", Channel, 53, 0)
+      }
+    }
   }
 }
 
 
+gdm() {
+  FileRead, json, %A_AppData%\Google Play Music Desktop Player\json_store\playback.json
 
+  RegExMatch(json, "O).playing.: (true|false)", gdmplaying)
+
+  if(gdmplaying.1 = "true") {
+    playing := 1
+  } else if(gdmplaying.1 = "false") {
+    playing := 0
+  }
+
+  RegExMatch(json, "O).current.: (\d*)", current)
+  RegExMatch(json, "O).total.: (\d*)", total)
+
+  playpercent := (current.1 / total.1)*8
+}
 
 
 readVolLvl(){
