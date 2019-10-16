@@ -55,6 +55,7 @@ add_vmr_function("RunVoicemeeter")
 add_vmr_function("SetParameterFloat")
 add_vmr_function("GetParameterFloat")
 add_vmr_function("IsParametersDirty")
+add_vmr_function("GetMidiMessage")
 
 ; "Login" to Voicemeeter, by calling the function in the DLL named 'VBVMR_Login()'...
 login_result := DllCall(VMR_FUNCTIONS["Login"], "Int")
@@ -314,8 +315,6 @@ Loop {
     } else {
       midiOutShortMsg(h_midiout, "CC", Channel, 43, 0)
     }
-
-
 
 
 
