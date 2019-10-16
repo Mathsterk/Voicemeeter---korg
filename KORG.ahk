@@ -311,40 +311,52 @@ Loop {
 
     }
 
-    if(solo0 > 0 and keepalive < threshold / 2) {
+    if(solo0 > 0 and keepalive < threshold / 2 and solo0state = 0) {
       midiOutShortMsg(h_midiout, "CC", Channel, 29, 127)
-    } else {
+      solo0state := 1
+    } else if(solo0state = 1) {
       midiOutShortMsg(h_midiout, "CC", Channel, 29, 0)
+      solo0state := 0
     }
 
-    if(solo1 > 0 and keepalive < threshold / 2) {
+    if(solo1 > 0 and keepalive < threshold / 2 and solo1state = 0) {
       midiOutShortMsg(h_midiout, "CC", Channel, 30, 127)
+      solo1state := 1
     } else {
       midiOutShortMsg(h_midiout, "CC", Channel, 30, 0)
+      solo1state := 0
     }
 
-    if(solo2 > 0 and keepalive < threshold / 2) {
+    if(solo2 > 0 and keepalive < threshold / 2 and solo2state = 0) {
       midiOutShortMsg(h_midiout, "CC", Channel, 31, 127)
+      solo2state := 1
     } else {
       midiOutShortMsg(h_midiout, "CC", Channel, 31, 0)
+      solo2state := 0
     }
 
-    if(solo3 > 0 and keepalive < threshold / 2) {
+    if(solo3 > 0 and keepalive < threshold / 2 and solo3state = 0) {
       midiOutShortMsg(h_midiout, "CC", Channel, 33, 127)
+      solo3state := 1
     } else {
       midiOutShortMsg(h_midiout, "CC", Channel, 33, 0)
+      solo3state := 0
     }
 
-    if(solo4 > 0 and keepalive < threshold / 2) {
+    if(solo4 > 0 and keepalive < threshold / 2 and solo4state = 0) {
       midiOutShortMsg(h_midiout, "CC", Channel, 34, 127)
+      solo4state := 1
     } else {
       midiOutShortMsg(h_midiout, "CC", Channel, 34, 0)
+      solo4state := 0
     }
     
-    if(solo5 > 0 and keepalive < threshold / 2) {
+    if(solo5 > 0 and keepalive < threshold / 2 and solo5state = 0) {
       midiOutShortMsg(h_midiout, "CC", Channel, 35, 127)
+      solo5state := 1
     } else {
       midiOutShortMsg(h_midiout, "CC", Channel, 35, 0)
+      solo5state := 0
     }
 
   }
