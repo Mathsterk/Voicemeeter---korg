@@ -681,6 +681,10 @@ Loop {
       }
     }
   }
+  if(ErrorLevel = -1) {
+  	sleep 1000
+  	reload
+  }
 }
 
 
