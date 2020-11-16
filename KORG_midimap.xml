@@ -42,10 +42,10 @@
 	<MidiMapItem id='InMute5' b1='B0' b2='17' b3='00' b4='00' b5='00' b6='00' coder='0' ptt='0' />
 	<MidiMapItem id='InSolo5' b1='B0' b2='1F' b3='00' b4='00' b5='00' b6='00' coder='0' ptt='0' />
 	<MidiMapItem id='InComp5' b1='00' b2='00' b3='00' b4='00' b5='00' b6='00' coder='0' ptt='0' />
-	<MidiMapItem id='InGate5' b1='00' b2='00' b3='00' b4='00' b5='00' b6='00' coder='0' ptt='0' />
+	<MidiMapItem id='InGate5' b1='B0' b2='56' b3='00' b4='00' b5='00' b6='00' coder='0' ptt='0' />
 	<MidiMapItem id='RevSend5' b1='00' b2='00' b3='00' b4='00' b5='00' b6='00' coder='0' ptt='0' />
-	<MidiMapItem id='DelaySend5' b1='00' b2='00' b3='00' b4='00' b5='00' b6='00' coder='0' ptt='0' />
-	<MidiMapItem id='Fx1Send5' b1='B0' b2='0F' b3='10' b4='00' b5='00' b6='00' coder='0' ptt='0' />
+	<MidiMapItem id='DelaySend5' b1='B0' b2='0F' b3='00' b4='00' b5='00' b6='00' coder='0' ptt='0' />
+	<MidiMapItem id='Fx1Send5' b1='00' b2='00' b3='00' b4='00' b5='00' b6='00' coder='0' ptt='0' />
 	<MidiMapItem id='Fx2Send5' b1='00' b2='00' b3='00' b4='00' b5='00' b6='00' coder='0' ptt='0' />
 	<MidiMapItem id='VInGainFader1' b1='B0' b2='05' b3='39' b4='00' b5='00' b6='00' coder='0' ptt='0' />
 	<MidiMapItem id='VInMute1' b1='B0' b2='18' b3='00' b4='00' b5='00' b6='00' coder='0' ptt='0' />
@@ -69,19 +69,19 @@
 	<MidiMapItem id='VIn3EQMed' b1='00' b2='00' b3='00' b4='00' b5='00' b6='00' coder='0' ptt='0' />
 	<MidiMapItem id='VIn3EQBass' b1='B0' b2='12' b3='1F' b4='00' b5='00' b6='00' coder='0' ptt='0' />
 	<MidiMapItem id='OutSEL1' b1='00' b2='00' b3='00' b4='00' b5='00' b6='00' coder='0' ptt='0' />
-	<MidiMapItem id='OutGainFader1' b1='B0' b2='09' b3='1B' b4='00' b5='00' b6='00' coder='0' ptt='0' />
+	<MidiMapItem id='OutGainFader1' b1='B0' b2='09' b3='0C' b4='00' b5='00' b6='00' coder='0' ptt='0' />
 	<MidiMapItem id='OutMute1' b1='B0' b2='1B' b3='00' b4='00' b5='00' b6='00' coder='0' ptt='0' />
 	<MidiMapItem id='OutEqOn1' b1='B0' b2='2C' b3='00' b4='00' b5='00' b6='00' coder='0' ptt='0' />
 	<MidiMapItem id='OutSEL2' b1='00' b2='00' b3='00' b4='00' b5='00' b6='00' coder='0' ptt='0' />
-	<MidiMapItem id='OutGainFader2' b1='B0' b2='0C' b3='0B' b4='00' b5='00' b6='00' coder='0' ptt='0' />
+	<MidiMapItem id='OutGainFader2' b1='B0' b2='0C' b3='16' b4='00' b5='00' b6='00' coder='0' ptt='0' />
 	<MidiMapItem id='OutMute2' b1='B0' b2='1C' b3='00' b4='00' b5='00' b6='00' coder='0' ptt='0' />
 	<MidiMapItem id='OutEqOn2' b1='B0' b2='2D' b3='00' b4='00' b5='00' b6='00' coder='0' ptt='0' />
 	<MidiMapItem id='OutSEL3' b1='00' b2='00' b3='00' b4='00' b5='00' b6='00' coder='0' ptt='0' />
-	<MidiMapItem id='OutGainFader3' b1='00' b2='00' b3='00' b4='00' b5='00' b6='00' coder='0' ptt='0' />
+	<MidiMapItem id='OutGainFader3' b1='B0' b2='13' b3='41' b4='00' b5='00' b6='00' coder='0' ptt='0' />
 	<MidiMapItem id='OutMute3' b1='00' b2='00' b3='00' b4='00' b5='00' b6='00' coder='0' ptt='0' />
 	<MidiMapItem id='OutEqOn3' b1='00' b2='00' b3='00' b4='00' b5='00' b6='00' coder='0' ptt='0' />
 	<MidiMapItem id='OutSEL4' b1='00' b2='00' b3='00' b4='00' b5='00' b6='00' coder='0' ptt='0' />
-	<MidiMapItem id='OutGainFader4' b1='00' b2='00' b3='00' b4='00' b5='00' b6='00' coder='0' ptt='0' />
+	<MidiMapItem id='OutGainFader4' b1='B0' b2='14' b3='1A' b4='00' b5='00' b6='00' coder='0' ptt='0' />
 	<MidiMapItem id='OutMute4' b1='00' b2='00' b3='00' b4='00' b5='00' b6='00' coder='0' ptt='0' />
 	<MidiMapItem id='OutEqOn4' b1='00' b2='00' b3='00' b4='00' b5='00' b6='00' coder='0' ptt='0' />
 	<MidiMapItem id='OutSEL5' b1='00' b2='00' b3='00' b4='00' b5='00' b6='00' coder='0' ptt='0' />
@@ -93,7 +93,7 @@
 	<MidiMapItem id='VOutMute1' b1='00' b2='00' b3='00' b4='00' b5='00' b6='00' coder='0' ptt='0' />
 	<MidiMapItem id='VOutEqOn1' b1='00' b2='00' b3='00' b4='00' b5='00' b6='00' coder='0' ptt='0' />
 	<MidiMapItem id='VOutSEL2' b1='00' b2='00' b3='00' b4='00' b5='00' b6='00' coder='0' ptt='0' />
-	<MidiMapItem id='VOutGainFader2' b1='00' b2='00' b3='00' b4='00' b5='00' b6='00' coder='0' ptt='0' />
+	<MidiMapItem id='VOutGainFader2' b1='B0' b2='52' b3='01' b4='00' b5='00' b6='00' coder='1' ptt='0' />
 	<MidiMapItem id='VOutMute2' b1='00' b2='00' b3='00' b4='00' b5='00' b6='00' coder='0' ptt='0' />
 	<MidiMapItem id='VOutEqOn2' b1='00' b2='00' b3='00' b4='00' b5='00' b6='00' coder='0' ptt='0' />
 	<MidiMapItem id='VOutSEL3' b1='00' b2='00' b3='00' b4='00' b5='00' b6='00' coder='0' ptt='0' />
