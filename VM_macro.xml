@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <VBAudioVoicemeeterMacroButtonMap>
-<MacroButtonConfiguration x0='338' y0='226' dx='1043' dy='527' />
+<MacroButtonConfiguration x0='984' y0='-1039' dx='1043' dy='527' />
 	<MacroButton index='1' type='1' color='1' key='0' ctrl='0' shift='0' alt='0' anyway='0' exclusive='0' trigger='0' xinput='0'>
 		<MB_MIDI b1='B0' b2='26' b3='7F' b4='00' b5='00' b6='00' />
 		<MB_TRIGGER tchannel='0' tin='0.0' tout='0.0' tmsHold='100' tafterMute='0' />
@@ -109,13 +109,13 @@
 		<MB_Subname>Switch Mics</MB_Subname>
 		<MB_InitRequest>Strip[0].Mute = 0
 Strip[1].Mute = 1
-System.SendMidi("out1", "ctrl-change", 1, 54, 0); </MB_InitRequest>
+System.SendMidi("out1", "ctrl-change", 1, 54, 0);</MB_InitRequest>
 		<MB_OnRequest>Strip[0].Mute = 1
 Strip[1].Mute = 0
-System.SendMidi("out1", "ctrl-change", 1, 54, 127); </MB_OnRequest>
+System.SendMidi("out1", "ctrl-change", 1, 54, 127);</MB_OnRequest>
 		<MB_OffRequest>Strip[0].Mute = 0
 Strip[1].Mute = 1
-System.SendMidi("out1", "ctrl-change", 1, 54, 0); </MB_OffRequest>
+System.SendMidi("out1", "ctrl-change", 1, 54, 0);</MB_OffRequest>
 	</MacroButton>
 	<MacroButton index='12' type='0' color='1' key='0' ctrl='0' shift='0' alt='0' anyway='0' exclusive='0' trigger='0' xinput='0'>
 		<MB_MIDI b1='B0' b2='37' b3='7F' b4='00' b5='00' b6='00' />
@@ -125,7 +125,7 @@ System.SendMidi("out1", "ctrl-change", 1, 54, 0); </MB_OffRequest>
 		<MB_Subname></MB_Subname>
 		<MB_InitRequest></MB_InitRequest>
 		<MB_OnRequest>System.KeyPress("MEDIAPAUSE");
-System.SendMidi("out1", "ctrl-change", 1, 55, 127); </MB_OnRequest>
+System.SendMidi("out1", "ctrl-change", 1, 55, 127);</MB_OnRequest>
 		<MB_OffRequest>System.SendMidi("out1", "ctrl-change", 1, 55, 0); 
 </MB_OffRequest>
 	</MacroButton>
@@ -137,8 +137,8 @@ System.SendMidi("out1", "ctrl-change", 1, 55, 127); </MB_OnRequest>
 		<MB_Subname></MB_Subname>
 		<MB_InitRequest></MB_InitRequest>
 		<MB_OnRequest>System.KeyPress("MEDIAPREV"); 
-System.SendMidi("out1", "ctrl-change", 1, 56, 127); </MB_OnRequest>
-		<MB_OffRequest>System.SendMidi("out1", "ctrl-change", 1, 56, 0); </MB_OffRequest>
+System.SendMidi("out1", "ctrl-change", 1, 56, 127);</MB_OnRequest>
+		<MB_OffRequest>System.SendMidi("out1", "ctrl-change", 1, 56, 0);</MB_OffRequest>
 	</MacroButton>
 	<MacroButton index='14' type='0' color='3' key='0' ctrl='0' shift='0' alt='0' anyway='0' exclusive='0' trigger='0' xinput='0'>
 		<MB_MIDI b1='B0' b2='39' b3='7F' b4='00' b5='00' b6='00' />
@@ -148,8 +148,8 @@ System.SendMidi("out1", "ctrl-change", 1, 56, 127); </MB_OnRequest>
 		<MB_Subname></MB_Subname>
 		<MB_InitRequest></MB_InitRequest>
 		<MB_OnRequest>System.KeyPress("MEDIANEXT"); 
-System.SendMidi("out1", "ctrl-change", 1, 57, 127); </MB_OnRequest>
-		<MB_OffRequest>System.SendMidi("out1", "ctrl-change", 1, 57, 0); </MB_OffRequest>
+System.SendMidi("out1", "ctrl-change", 1, 57, 127);</MB_OnRequest>
+		<MB_OffRequest>System.SendMidi("out1", "ctrl-change", 1, 57, 0);</MB_OffRequest>
 	</MacroButton>
 	<MacroButton index='15' type='0' color='0' key='0' ctrl='0' shift='0' alt='0' anyway='0' exclusive='0' trigger='0' xinput='0'>
 		<MB_MIDI b1='00' b2='00' b3='00' b4='00' b5='00' b6='00' />
@@ -211,25 +211,27 @@ System.SendMidi("out1", "ctrl-change", 1, 57, 127); </MB_OnRequest>
 		<MB_OnRequest></MB_OnRequest>
 		<MB_OffRequest></MB_OffRequest>
 	</MacroButton>
-	<MacroButton index='21' type='0' color='0' key='0' ctrl='0' shift='0' alt='0' anyway='0' exclusive='0' trigger='0' xinput='0'>
-		<MB_MIDI b1='00' b2='00' b3='00' b4='00' b5='00' b6='00' />
+	<MacroButton index='21' type='0' color='3' key='0' ctrl='0' shift='0' alt='0' anyway='0' exclusive='0' trigger='0' xinput='0'>
+		<MB_MIDI b1='B0' b2='50' b3='7F' b4='00' b5='00' b6='00' />
 		<MB_TRIGGER tchannel='0' tin='0.0' tout='0.0' tmsHold='100' tafterMute='0' />
 		<MB_XINPUT nctrl='0' nbutton='0' />
-		<MB_Name></MB_Name>
+		<MB_Name>Like</MB_Name>
 		<MB_Subname></MB_Subname>
 		<MB_InitRequest></MB_InitRequest>
-		<MB_OnRequest></MB_OnRequest>
-		<MB_OffRequest></MB_OffRequest>
+		<MB_OnRequest>System.KeyPress("CTRL+F24");
+System.SendMidi("out1", "ctrl-change", 1, 80, 127);</MB_OnRequest>
+		<MB_OffRequest>System.SendMidi("out1", "ctrl-change", 1, 80, 0);</MB_OffRequest>
 	</MacroButton>
-	<MacroButton index='22' type='0' color='0' key='0' ctrl='0' shift='0' alt='0' anyway='0' exclusive='0' trigger='0' xinput='0'>
-		<MB_MIDI b1='00' b2='00' b3='00' b4='00' b5='00' b6='00' />
+	<MacroButton index='22' type='0' color='8' key='0' ctrl='0' shift='0' alt='0' anyway='0' exclusive='0' trigger='0' xinput='0'>
+		<MB_MIDI b1='B0' b2='3F' b3='7F' b4='00' b5='00' b6='00' />
 		<MB_TRIGGER tchannel='0' tin='0.0' tout='0.0' tmsHold='100' tafterMute='0' />
 		<MB_XINPUT nctrl='0' nbutton='0' />
-		<MB_Name></MB_Name>
+		<MB_Name>Unlike</MB_Name>
 		<MB_Subname></MB_Subname>
 		<MB_InitRequest></MB_InitRequest>
-		<MB_OnRequest></MB_OnRequest>
-		<MB_OffRequest></MB_OffRequest>
+		<MB_OnRequest>System.KeyPress("CTRL+F23");
+System.SendMidi("out1", "ctrl-change", 1, 63, 127);</MB_OnRequest>
+		<MB_OffRequest>System.SendMidi("out1", "ctrl-change", 1, 63, 0);</MB_OffRequest>
 	</MacroButton>
 	<MacroButton index='23' type='0' color='0' key='0' ctrl='0' shift='0' alt='0' anyway='0' exclusive='0' trigger='0' xinput='0'>
 		<MB_MIDI b1='00' b2='00' b3='00' b4='00' b5='00' b6='00' />
