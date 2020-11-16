@@ -74,6 +74,8 @@ Sleep 2000
 
 global playpercent
 global playing
+global liked
+global unliked
 
 solo0state := 0
 solo1state := 0
@@ -592,6 +594,16 @@ Loop {
           change := 1
         }
       }
+      if(liked) {
+        midiOutShortMsg(h_midiout, "CC", Channel, 80, 127)
+      } else {
+        midiOutShortMsg(h_midiout, "CC", Channel, 80, 0)
+      }
+      if(unliked) {
+        midiOutShortMsg(h_midiout, "CC", Channel, 63, 127)
+      } else {
+        midiOutShortMsg(h_midiout, "CC", Channel, 63, 0)
+      }
 
     }
     if(not playing) {
@@ -703,6 +715,19 @@ gdm() {
   RegExMatch(json, "O).total.: (\d*)", total)
 
   playpercent := (current.1 / total.1)*8
+
+  RegExMatch(json, "O).liked.: (true|false)", gdmliked)
+  if(gdmliked.1 = "true") {
+    liked := 1
+  } else if(gdmliked.1 = "false") {
+    liked := 0
+  }
+  RegExMatch(json, "O).unliked.: (true|false)", gdmunliked)
+  if(gdmunliked.1 = "true") {
+    unliked := 1
+  } else if(gdmunliked.1 = "false") {
+    unliked := 0
+  }
 }
 
 
