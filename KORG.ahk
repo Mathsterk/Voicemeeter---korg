@@ -318,6 +318,15 @@ Loop {
       midiOutShortMsg(h_midiout, "CC", Channel, 43, 0)
     }
 
+    A1tv := 0
+
+    DllCall(VMR_FUNCTIONS["GetParameterFloat"], "AStr", "Bus[0].mode.normal", "Float*", A1tv)
+    if(A1tv > 0) {
+      midiOutShortMsg(h_midiout, "CC", Channel, 36, 0)
+    } else {
+      midiOutShortMsg(h_midiout, "CC", Channel, 36, 127)
+    }
+
 
 
   } else {
